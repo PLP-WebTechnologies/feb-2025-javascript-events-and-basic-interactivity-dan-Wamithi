@@ -1,0 +1,196 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Planning Form</title>
+    <link rel="stylesheet" href="style.css">    
+</head>
+<body>
+    <div class="container">
+        <h1>Adventure Planning Form</h1>
+        
+        <div class="tabs">
+            <button class="tab-button active" data-tab="personal">Personal Info</button>
+            <button class="tab-button" data-tab="destination">Destination</button>
+            <button class="tab-button" data-tab="activities">Activities</button>
+            <button class="tab-button" data-tab="account">Account</button>
+        </div>
+        
+        <form id="adventure-form">
+            <!-- Personal Info Tab -->
+            <div id="personal-tab" class="tab-content active">
+                <h2>Personal Information</h2>
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <div class="error-message" id="name-error">Please enter your full name</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error-message" id="email-error">Please enter a valid email address</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                    <div class="error-message" id="phone-error">Please enter a valid phone number</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="date">Departure Date</label>
+                    <input type="date" id="date" name="date" min="" required>
+                    <div class="error-message" id="date-error">Please select a future date</div>
+                </div>
+                
+                <div class="button-group">
+                    <button type="button" class="next" id="personal-next">Next: Choose Destination</button>
+                </div>
+            </div>
+            
+            <!-- Destination Tab -->
+            <div id="destination-tab" class="tab-content">
+                <h2>Choose Your Destination</h2>
+                
+                <div class="gallery">
+                    <div class="gallery-container">
+                        <img src="https://img.freepik.com/premium-photo/relaxing-tropical-holidays-exotic-paradise-mauritius-island_287743-1194.jpg?uid=R194959716&ga=GA1.1.280709189.1743954794&semt=ais_hybrid&w=740" alt="Beach destination" class="gallery-image active" data-name="Tropical Paradise">
+                        <img src="https://img.freepik.com/free-photo/vertical-shot-trail-leading-up-rocky-green-mountains_181624-39656.jpg?uid=R194959716&ga=GA1.1.280709189.1743954794&semt=ais_hybrid&w=740" alt="Mountain destination" class="gallery-image" data-name="Mountain Retreat">
+                        <img src="https://img.freepik.com/premium-photo/skyline-cityscape-nairobi-capital-kenya-africa_136401-3548.jpg?uid=R194959716&ga=GA1.1.280709189.1743954794&semt=ais_hybrid&w=740" alt="City destination" class="gallery-image" data-name="Urban Adventure">
+                        <img src="https://img.freepik.com/free-photo/vertical-shot-beautiful-trees-mountains-captured-queensland-australia_181624-18375.jpg?uid=R194959716&ga=GA1.1.280709189.1743954794&semt=ais_hybrid&w=740" alt="Forest destination" class="gallery-image" data-name="Forest Expedition">
+                    </div>
+                    <div class="gallery-caption">Tropical Paradise</div>
+                    <div class="gallery-buttons">
+                        <button type="button" class="gallery-button" id="prev-destination">Previous</button>
+                        <button type="button" class="gallery-button" id="next-destination">Next</button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="destination">Selected Destination</label>
+                    <input type="text" id="destination" name="destination" value="Tropical Paradise" required readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label for="duration">Trip Duration (Days)</label>
+                    <input type="number" id="duration" name="duration" min="1" max="30" value="7" required>
+                    <div class="error-message" id="duration-error">Please enter a trip duration between 1-30 days</div>
+                </div>
+                
+                <div class="button-group">
+                    <button type="button" class="secondary" id="destination-prev">Back</button>
+                    <button type="button" class="next" id="destination-next">Next: Select Activities</button>
+                </div>
+            </div>
+            
+            <!-- Activities Tab -->
+            <div id="activities-tab" class="tab-content">
+                <h2>Select Your Activities</h2>
+                <p>Choose at least one activity for your adventure:</p>
+                
+                <div class="activity-grid">
+                    <div class="activity-card" data-activity="hiking">
+                        <div class="activity-icon">🥾</div>
+                        <div>Hiking</div>
+                    </div>
+                    <div class="activity-card" data-activity="swimming">
+                        <div class="activity-icon">🏊</div>
+                        <div>Swimming</div>
+                    </div>
+                    <div class="activity-card" data-activity="sightseeing">
+                        <div class="activity-icon">🏛️</div>
+                        <div>Sightseeing</div>
+                    </div>
+                    <div class="activity-card" data-activity="cycling">
+                        <div class="activity-icon">🚴</div>
+                        <div>Cycling</div>
+                    </div>
+                    <div class="activity-card" data-activity="photography">
+                        <div class="activity-icon">📸</div>
+                        <div>Photography</div>
+                    </div>
+                    <div class="activity-card" data-activity="food">
+                        <div class="activity-icon">🍽️</div>
+                        <div>Food Tour</div>
+                    </div>
+                </div>
+                
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="activities">Selected Activities</label>
+                    <input type="text" id="activities" name="activities" readonly required>
+                    <div class="error-message" id="activities-error">Please select at least one activity</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes">Special Requests</label>
+                    <textarea id="notes" name="notes" rows="4" placeholder="Any special requests or needs?"></textarea>
+                </div>
+                
+                <div class="button-group">
+                    <button type="button" class="secondary" id="activities-prev">Back</button>
+                    <button type="button" class="next" id="activities-next">Next: Create Account</button>
+                </div>
+            </div>
+            
+            <!-- Account Tab -->
+            <div id="account-tab" class="tab-content">
+                <h2>Create Your Account</h2>
+                
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                    <div class="error-message" id="username-error">Username must be at least 4 characters</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    <div class="password-strength"></div>
+                    <div class="strength-text"></div>
+                    <div class="error-message" id="password-error">Password must be at least 8 characters, with numbers and special characters</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    <div class="error-message" id="confirm-password-error">Passwords do not match</div>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="terms" name="terms" required>
+                        I agree to the Terms and Conditions
+                    </label>
+                    <div class="error-message" id="terms-error">You must agree to the terms</div>
+                </div>
+                
+                <div class="button-group">
+                    <button type="button" class="secondary" id="account-prev">Back</button>
+                    <button type="submit" class="submit" id="submit-button">Submit Adventure</button>
+                </div>
+            </div>
+        </form>
+        
+        <!-- Success Message -->
+        <div id="success-message" class="success-message">
+            <h2>Your Adventure is Booked! 🎉</h2>
+            <p>Thank you for planning your adventure with us. We've sent you a confirmation email with all the details.</p>
+            <button type="button" id="start-over">Plan Another Adventure</button>
+        </div>
+        
+        <!-- Secret Feature (triggered by double-click on title) -->
+        <div class="secret-feature" id="secret-feature">
+            <button class="secret-close" id="secret-close">✕</button>
+            <h3>🌟 Secret Adventure Unlocked!</h3>
+            <p>You've discovered our hidden feature! Here's a special discount code for your next adventure:</p>
+            <p><strong>ADVENTURE25</strong> - 25% off your next booking!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>
